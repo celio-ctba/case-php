@@ -1,7 +1,7 @@
-# case-php
+# case-php 🐘
 ## PHP REST API com MySQL + Docker + Terraform (GCP) + Pipeline com Github Actions
 
-Este projeto demonstra como construir e implantar uma API REST em PHP com MySQL, utilizando Docker, PHPUnit para testes e Terraform para provisionar a infraestrutura no Google Cloud Platform (GCP).
+Este projeto demonstra como construir, implantar e automatizar o deploy de uma API REST em PHP com MySQL, utilizando Docker, PHPUnit para testes e Terraform para provisionar a infraestrutura no Google Cloud Platform (GCP).
 
 
 
