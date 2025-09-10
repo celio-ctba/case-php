@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: php-api-app
+    depends_on:
+      - db
+    volumes:
+      - ./public:/var/www/html/public
+    ports:
+      - "8000:80"
+    environment:
+      - DB_HOST=db
+      - DB_DATABASE=app_db
+      - DB_USER=admin
+      - DB_PASSWORD=banco
+
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: banco
+      MYSQL_ROOT_PASSWORD: rootpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  db_data:
