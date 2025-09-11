@@ -1,0 +1,8 @@
+global:
+  scrape_interval: 15s # A cada 15 segundos, o Prometheus coletará as métricas.
+
+scrape_configs:
+  - job_name: 'php-api'
+    static_configs:
+      # O alvo é o serviço 'app' na porta 80, como definido no docker-compose.
+      - targets: ['app:80']

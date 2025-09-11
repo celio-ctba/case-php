@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     zip \
     libzip-dev \
-    && docker-php-ext-install mysqli pdo pdo_mysql
+    && docker-php-ext-install mysqli pdo pdo_mysql \
+    && pecl install apcu && docker-php-ext-enable apcu
 
 # Habilitar mod_rewrite
 RUN a2enmod rewrite
